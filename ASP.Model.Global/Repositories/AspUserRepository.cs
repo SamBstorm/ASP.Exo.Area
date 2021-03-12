@@ -12,7 +12,7 @@ namespace ASP.Model.Global.Repositories
 {
     public class AspUserRepository : BasicRepository, IAspUserRepository<AspUser, int>
     {
-        public AspUserRepository(string connectionStringName):base(connectionStringName)
+        public AspUserRepository(string connectionStringName) : base(connectionStringName)
         {
 
         }
@@ -32,6 +32,20 @@ namespace ASP.Model.Global.Repositories
             return _connection.ExecuteNonQuery(command) == 1;
         }
 
+        public void DenyAdmin(int id)
+        {
+            Command command = new Command("SP_UserRight_DenyAdmin", true);
+            command.AddParameter("userid", id);
+            _connection.ExecuteNonQuery(command);
+        }
+
+        public void DenyDefault(int id)
+        {
+            Command command = new Command("SP_UserRight_DenyDefault", true);
+            command.AddParameter("userid", id);
+            _connection.ExecuteNonQuery(command);
+        }
+
         public IEnumerable<AspUser> Get()
         {
             Command command = new Command("SP_AspUser_GetAll", true);
@@ -43,6 +57,34 @@ namespace ASP.Model.Global.Repositories
             Command command = new Command("SP_AspUser_GetById", true);
             command.AddParameter("id", id);
             return _connection.ExecuteReader(command, Mapper.DbToModel).SingleOrDefault();
+        }
+
+        public void GrantAdmin(int id)
+        {
+            Command command = new Command("SP_UserRight_GrantAdmin", true);
+            command.AddParameter("userid", id);
+            _connection.ExecuteNonQuery(command);
+        }
+
+        public void GrantDefault(int id)
+        {
+            Command command = new Command("SP_UserRight_GrantDefault", true);
+            command.AddParameter("userid", id);
+            _connection.ExecuteNonQuery(command);
+        }
+
+        public bool HaveAdminRight(int id)
+        {
+            Command command = new Command("SP_AspUser_HaveAdminRight", true);
+            command.AddParameter("userid", id);
+            return ((int?)_connection.ExecuteScalar(command) is null) ? false : true;
+        }
+
+        public bool HaveDefaultRight(int id)
+        {
+            Command command = new Command("SP_AspUser_HaveDefaultRight", true);
+            command.AddParameter("userid", id);
+            return ((int?)_connection.ExecuteScalar(command) is null) ? false : true;
         }
 
         public int Insert(AspUser entity)
