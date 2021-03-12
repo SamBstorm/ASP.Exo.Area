@@ -120,10 +120,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserRightController.cs" />
+    <Compile Include="Areas\Admin\Data\AspUserRight.cs" />
     <Compile Include="Controllers\AspUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructs\AuthAttributes\DefaultRightAttribute.cs" />
+    <Compile Include="Infrastructs\AuthAttributes\AdminRightAttribute.cs" />
     <Compile Include="Infrastructs\AuthAttributes\AnonymousUserAttribute.cs" />
     <Compile Include="Infrastructs\AuthAttributes\AuthentifiedUserAttribute.cs" />
     <Compile Include="Infrastructs\CustomHtmlHelpers.cs" />
@@ -148,6 +153,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\UserRight\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_UserRightListItem.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

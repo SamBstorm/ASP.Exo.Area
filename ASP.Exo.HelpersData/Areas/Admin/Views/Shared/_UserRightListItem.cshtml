@@ -1,0 +1,21 @@
+﻿@model ASP.Exo.HelpersData.Areas.Admin.Data.AspUserRight
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => Model.Mail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.IsAdmin)
+        @Html.ActionLink("Changer droit","ToggleAdminRight", new { id = Model.Id })
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => Model.IsDefault)
+        @Html.ActionLink("Changer droit","ToggleDefaultRight", new { id = Model.Id })
+    </td>
+</tr>

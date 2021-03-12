@@ -13,10 +13,13 @@ namespace ASP.Exo.HelpersData
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "AspUser", action = "Register", id = UrlParameter.Optional }
+                defaults: new { controller = "AspUser", action = "Register", id = UrlParameter.Optional },
+                namespaces: new string[] { "ASP.Exo.HelpersData.Controllers" }
             );
         }
     }

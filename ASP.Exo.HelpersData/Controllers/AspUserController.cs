@@ -75,6 +75,7 @@ namespace ASP.Exo.HelpersData.Controllers
             return View();
         }
         [AuthentifiedUser]
+        [DefaultRight]
         public ActionResult Logout()
         {
             Session.Abandon();
