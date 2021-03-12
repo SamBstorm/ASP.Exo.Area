@@ -1,0 +1,11 @@
+﻿@using ASP.Exo.HelpersData.Infrastructs;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if(Utils.SessionUser != null)
+            {
+                Html.RenderPartial("_Logged");
+            }
