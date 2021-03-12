@@ -72,9 +72,9 @@
     <Build Include="StoredProcedures\SP_AspUser_GetById.sql" />
     <Build Include="StoredProcedures\SP_AspUser_Insert.sql" />
     <Build Include="StoredProcedures\SP_AspUser_Update.sql" />
-    <Build Include="Scripts\AspUser.AddAdmin.sql" />
-    <Build Include="Scripts\Script.PostDeployment.Main.sql" />
-    <Build Include="Scripts\UserRight.Init.sql" />
+    <None Include="Scripts\AspUser.AddAdmin.sql" />
+    <PostDeploy Include="Scripts\Script.PostDeployment.Main.sql" />
+    <None Include="Scripts\UserRight.Init.sql" />
     <Build Include="StoredProcedures\SP_UserRight_DenyAdmin.sql" />
     <Build Include="StoredProcedures\SP_UserRight_DenyDefault.sql" />
     <Build Include="StoredProcedures\SP_UserRight_GrantAdmin.sql" />
